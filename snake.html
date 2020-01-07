@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>贪吃蛇</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    html,body{
+        width:100%;
+        height: 100%;
+        background-image: linear-gradient(45deg,#009FFF,#ec2f4b)
+    }
+    .wrap{
+        position: relative;
+        width: 800px;
+        height: 600px;
+        margin: 0px auto;
+        border: 1px solid #000;
+    }
+    .wrap .gameBox{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 800px;;
+        height: 450px;
+        border: 1px solid #000;
+        background-image: url('./img/gamebg.jpg');
+        background-size: 100% 100%;
+        overflow: hidden;
+    }
+    .start,.pause{
+        background-color: #f40;
+        color: #fff;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid #000;
+        text-align: center;
+        line-height: 50px;
+        font-weight: 600;
+        box-sizing: border-box;
+        
+    }
+   .pause{
+        background: #abcd;
+        display: none;
+    }
+    /* 分数按钮 */
+   .score{
+    box-sizing: border-box;
+        position: absolute;
+        left:0px;
+        top: 50px;
+        background: rgb(81, 132, 226);
+        width: 100px;
+        height: 50px;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 5px;
+        border: 1px solid #000;
+        text-align: center;
+        line-height: 50px;
+    }
+    /* 贪吃蛇身体颜色 */
+    .head{
+        /* transition: all 5s linear; */
+        background-color:rgb(54, 214, 54); 
+    }
+    .body{
+        /* transition: all 5s linear; */
+        background-color:yellow; 
+    }
+    /* 静音键 */
+    .voice{
+        position: absolute;
+        left: 0px;
+        top: 100px;
+        border-radius: 5px;
+        width: 100px;
+        height: 50px;
+        font-size: 16px;
+        text-align: center;
+        line-height: 50px;
+        font-weight: 600;
+        color: #fff;
+        box-sizing: border-box;
+        background-color: rgb(112, 106, 106);
+        
+    }
+    /* 区域上半部 */
+    .header{
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 450px);
+    }
+    .header .header_right{
+        position: absolute;
+        right: 0;
+        width: calc(100% - 100px);
+        height:100%;
+        text-align: center;
+        background-image: linear-gradient(to left,#22c1c3,#fdbb2d)
+    }
+    .header .header_right dl dt,.header .header_right dl dd{
+        height: 30px;
+        line-height: 30px;
+        color:  #fffcdc;
+        font-weight: 500;
+        font-size: 20px
+    }
+    .notice_board{
+        position: absolute;
+        bottom: 20px;
+        width:100%;
+        text-align: center;
+        color: rgb(197, 31, 31);
+        font-weight: bold;
+        font-size: 20px;
+
+    }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="header_right">
+                <dl>
+                    <dt>玩家player：</dt>
+                    <dd>点击开始游戏</dd>
+                    <dd>按W、A、S、D控制方向</dd>
+                    
+                </dl>
+                <div class="notice_board">
+                    已知Bug：......
+                </div>
+            </div>
+            <div class="voice">静音</div>
+            <audio src="./music/eat.mp3" class="eat"></audio>
+            <div class="start">游戏开始</div>
+            <div class="pause">游戏暂停</div>
+            <div class="score">分数为</div>
+        </div>
+        
+        <!-- <iframe src="./music/gameStart.mp3" frameborder="0"></iframe> -->
+        <!-- <audio src="./music/gameStart.mp3" autoplay loop='loop' id="music"></audio> -->
+        
+        <div class="gameBox"></div>
+
+    </div>
+    <script src="./snake.js"></script>
+</body>
+</html>
